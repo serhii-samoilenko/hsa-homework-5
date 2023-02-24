@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+
+  mongodb:
+    image: bitnami/mongodb
+    container_name: mongodb
+    restart: always
+    volumes:
+      - ./data/mongodb:/bitnami/mongodb
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - LOG_LEVEL=info # debug,info,notice,warning,err,crit,alert,emerg
+    ports:
+      - '27017:27017'
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping').ok", "--quiet" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  siege:
+    image: jstarcher/siege
+    container_name: siege
+    depends_on:
+      - nginx
+    command: -c 10 -t 30m http://nginx:8080/root/xor/random
