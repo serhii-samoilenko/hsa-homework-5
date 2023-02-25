@@ -1,0 +1,5 @@
+# URLS file for siege
+# --
+# 1 POST per 99 GETs
+http://localhost:8080/person/random POST
+http://localhost:8080/person/random

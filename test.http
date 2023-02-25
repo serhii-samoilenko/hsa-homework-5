@@ -1,0 +1,14 @@
+### GET random person
+GET localhost:8080/person/random
+
+### GET person
+GET localhost:8080/person?firstName=OABWVKGtIp&lastName=NMKSnyKKSZMY
+
+### POST random person
+POST localhost:8080/person/random
+
+### GET person count
+GET localhost:8080/person/count
+
+### DELETE all persons
+DELETE localhost:8080/person/all

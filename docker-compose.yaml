@@ -1,6 +1,21 @@
 version: '3.9'
 services:
 
+  person-service:
+    image: ssamoilenko/hsal5-stress-test:latest
+    build:
+      context: ./
+      dockerfile: src/main/docker/Dockerfile.native
+    environment:
+      - QUARKUS_MONGODB_CONNECTION_STRING=mongodb://mongodb:27017/persons
+      - APP_ENTITY_COUNT=100000
+      - APP_PREPOPULATE_PERCENTAGE=75
+    ports:
+      - '8080:8080'
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
   mongodb:
     image: bitnami/mongodb
     container_name: mongodb
@@ -9,7 +24,6 @@ services:
       - ./data/mongodb:/bitnami/mongodb
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
-      - LOG_LEVEL=info # debug,info,notice,warning,err,crit,alert,emerg
     ports:
       - '27017:27017'
     healthcheck:
@@ -17,10 +31,3 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-
-  siege:
-    image: jstarcher/siege
-    container_name: siege
-    depends_on:
-      - nginx
-    command: -c 10 -t 30m http://nginx:8080/root/xor/random

@@ -1,2 +1,15 @@
-greeting:
-  message: "hello"
+# Quarkus MongoDB configuration, with environment variables:
+# QUARKUS_MONGODB_CONNECTION_STRING
+# QUARKUS_MONGODB_DATABASE
+# QUARKUS_MONGODB_CREDENTIALS_USERNAME
+# QUARKUS_MONGODB_CREDENTIALS_PASSWORD
+quarkus:
+  mongodb:
+    database: test
+  # connection-string: mongodb://localhost:27017
+  native:
+    additional-build-args: --initialize-at-run-time=com.example.PersonResource
+
+app:
+  entity-count: 1000
+  prepopulate-percentage: 75
