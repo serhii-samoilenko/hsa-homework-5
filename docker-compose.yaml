@@ -8,8 +8,8 @@ services:
       dockerfile: src/main/docker/Dockerfile.native
     environment:
       - QUARKUS_MONGODB_CONNECTION_STRING=mongodb://mongodb:27017/persons
-      - APP_ENTITY_COUNT=100000
-      - APP_PREPOPULATE_PERCENTAGE=70
+      - APP_ENTITY_COUNT=2000000
+      - APP_PREPOPULATE_PERCENTAGE=100
     ports:
       - '8080:8080'
     depends_on:

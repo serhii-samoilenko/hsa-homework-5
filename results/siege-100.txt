@@ -1,15 +1,15 @@
 > siege -c 100 -t 5m -b -i -f urls.txt
 
 Lifting the server siege...
-Transactions:                  14419 hits
+Transactions:                   2713 hits
 Availability:                 100.00 %
-Elapsed time:                 300.23 secs
-Data transferred:               1.00 MB
-Response time:                  2.07 secs
-Transaction rate:              48.03 trans/sec
-Throughput:                     0.00 MB/sec
-Concurrency:                   99.59
-Successful transactions:       14419
+Elapsed time:                 300.15 secs
+Data transferred:               5.72 MB
+Response time:                 10.62 secs
+Transaction rate:               9.04 trans/sec
+Throughput:                     0.02 MB/sec
+Concurrency:                   95.95
+Successful transactions:        2713
 Failed transactions:               0
-Longest transaction:            4.93
+Longest transaction:           32.48
 Shortest transaction:           0.00

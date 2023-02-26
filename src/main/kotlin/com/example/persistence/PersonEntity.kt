@@ -10,4 +10,5 @@ class PersonEntity {
     lateinit var lastName: String
     var age: Int = 0
     lateinit var phoneNumber: String
+    lateinit var cv: String
 }

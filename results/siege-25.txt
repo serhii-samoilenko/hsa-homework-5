@@ -1,15 +1,16 @@
-> siege -c 25 -t 5m -b -i -f urls.txt
+> siege -c 25 -t 5m -b -i -R .siegerc -f urls-benchmark.txt
 
 Lifting the server siege...
-Transactions:                  11343 hits
+Transactions:                   4428 hits
 Availability:                 100.00 %
-Elapsed time:                 300.47 secs
-Data transferred:               0.79 MB
-Response time:                  0.66 secs
-Transaction rate:              37.75 trans/sec
-Throughput:                     0.00 MB/sec
-Concurrency:                   24.96
-Successful transactions:       11343
+Elapsed time:                 300.40 secs
+Data transferred:               8.90 MB
+Response time:                  1.69 secs
+Transaction rate:              14.74 trans/sec
+Throughput:                     0.03 MB/sec
+Concurrency:                   24.93
+Successful transactions:        4428
 Failed transactions:               0
-Longest transaction:            3.62
+Longest transaction:            8.08
 Shortest transaction:           0.00
+

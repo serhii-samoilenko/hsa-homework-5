@@ -1,5 +1,6 @@
 package com.example.api
 
+import com.example.model.Person
 import com.example.service.PersonService
 import javax.enterprise.context.ApplicationScoped
 import javax.ws.rs.DELETE
