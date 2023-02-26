@@ -61,8 +61,10 @@ class PersonService(
 
     @PostConstruct
     fun init() {
+        Log.info("Deleting all existing records from DB")
+        deleteAllPersons()
         Log.info(
-            "Pre-populating DB with ${config.prepopulatePercentage()}% of total" +
+            "Pre-populating DB with around ${config.prepopulatePercentage()}% of total" +
                 " ${firstNames.size} first names and ${lastNames.size} last names"
         )
         firstNames.forEach { firstName ->
@@ -70,7 +72,7 @@ class PersonService(
             val personList = (1..count).map {
                 Person(
                     firstName = firstName,
-                    lastName = lastNames[it],
+                    lastName = lastNames.random(),
                     age = randomAge(),
                     phoneNumber = randomPhoneNumber()
                 )
@@ -78,7 +80,7 @@ class PersonService(
             Log.info("Persisting ${personList.size} persons with first name $firstName")
             personRepository.persist(personList)
         }
-        Log.info("Persisted ${countPersons()} persons in total")
+        Log.info("DB now contains ${countPersons()} persons in total")
     }
 
     companion object {

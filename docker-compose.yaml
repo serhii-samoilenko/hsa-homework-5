@@ -9,7 +9,7 @@ services:
     environment:
       - QUARKUS_MONGODB_CONNECTION_STRING=mongodb://mongodb:27017/persons
       - APP_ENTITY_COUNT=100000
-      - APP_PREPOPULATE_PERCENTAGE=75
+      - APP_PREPOPULATE_PERCENTAGE=70
     ports:
       - '8080:8080'
     depends_on:

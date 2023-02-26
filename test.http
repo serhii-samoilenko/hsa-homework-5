@@ -2,10 +2,21 @@
 GET localhost:8080/person/random
 
 ### GET person
-GET localhost:8080/person?firstName=OABWVKGtIp&lastName=NMKSnyKKSZMY
+GET localhost:8080/person?firstName=John&lastName=Doe
 
 ### POST random person
 POST localhost:8080/person/random
+
+### POST person
+POST localhost:8080/person
+Content-Type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 44,
+    "phoneNumber": "2053542636"
+}
 
 ### GET person count
 GET localhost:8080/person/count

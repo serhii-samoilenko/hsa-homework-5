@@ -1,5 +1,11 @@
 # URLS file for siege
 # --
-# 1 POST per 99 GETs
+# Read/Write ratio 5:1
+#
 http://localhost:8080/person/random POST
+
+http://localhost:8080/person/random
+http://localhost:8080/person/random
+http://localhost:8080/person/random
+http://localhost:8080/person/random
 http://localhost:8080/person/random

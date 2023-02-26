@@ -44,7 +44,12 @@ class PersonResource(
     @Path("/random")
     @Produces(APPLICATION_JSON)
     fun getRandomPerson(): Response {
-        return Response.ok(personService.getRandomPerson()).build()
+        val entity = personService.getRandomPerson()
+        return if (entity == null) {
+            Response.noContent().build()
+        } else {
+            Response.ok(entity).build()
+        }
     }
 
     @POST
